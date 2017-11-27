@@ -3,7 +3,6 @@
 
 function draw() {
 
-  b.revert();
   b.size(1720, 290);
 
   b.textFont("Arial");
