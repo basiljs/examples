@@ -3,14 +3,15 @@
 
 function draw() {
   b.clear(b.doc());
+  b.units(b.PT);
 
   var red = b.color(255, 0, 0);
   var lightBlue = b.color(0, 255, 255);
 
   b.fill(red);
-  b.ellipse(b.width / 3, b.height / 2, 333, 333);
+  b.ellipse(b.width / 2 - 80, b.height / 2, 333, 333);
   b.fill(lightBlue);
-  var circle = b.ellipse(b.width / 3 * 2, b.height / 2, 333, 333);
+  var circle = b.ellipse(b.width / 2 + 80, b.height / 2, 333, 333);
 
   /*
   BlendMode.NORMAL
