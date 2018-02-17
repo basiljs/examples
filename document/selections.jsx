@@ -1,23 +1,22 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
-// you can get all the elements you have selected in indesign via b.selection()
-// there a two different ways to use the b.selections() function
+// you can get all the elements you have selected in InDesign via the selections() function
+// there a two different ways to use the selections() function
+// to try the script, select a few page items, then run the script
 
 function draw() {
   // a
-  var mySelection = b.selections();
+  var mySelection = selections();
   for (var i = 0; i < mySelection.length; i++) {
-    b.println("element " + i + " is a: " + mySelection[i]);
+    println("element " + i + " is a: " + mySelection[i]);
   }
 
-  b.println("---");
+  println("---");
 
   // b
-  b.selections(function(item, counter) {
-    b.println("element " + counter + " is a: " + item);
+  selections(function(item, counter) {
+    println("element " + counter + " is a: " + item);
   });
 
 }
-
-b.go();
