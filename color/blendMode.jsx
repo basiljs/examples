@@ -1,17 +1,17 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
-  b.clear(b.doc());
-  b.units(b.PT);
+  clear(doc());
+  units(PT);
 
-  var red = b.color(255, 0, 0);
-  var lightBlue = b.color(0, 255, 255);
+  var red = color(255, 0, 0);
+  var lightBlue = color(0, 255, 255);
 
-  b.fill(red);
-  b.ellipse(b.width / 2 - 80, b.height / 2, 333, 333);
-  b.fill(lightBlue);
-  var circle = b.ellipse(b.width / 2 + 80, b.height / 2, 333, 333);
+  fill(red);
+  ellipse(width / 2 - 80, height / 2, 333, 333);
+  fill(lightBlue);
+  var circle = ellipse(width / 2 + 80, height / 2, 333, 333);
 
   /*
   BlendMode.NORMAL
@@ -32,7 +32,5 @@ function draw() {
   BlendMode.LUMINOSITY
    */
 
-  b.blendMode(circle, BlendMode.HARD_LIGHT);
+  blendMode(circle, BlendMode.HARD_LIGHT);
 }
-
-b.go();

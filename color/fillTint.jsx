@@ -1,18 +1,16 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
   var counter = 50;
-  b.noStroke();
-  var rectHeight = b.height / counter;
+  noStroke();
+  var rectHeight = height / counter;
 
   for (var i = 0; i < counter; i++) {
-    var y = b.map(i, 0, counter - 1, 0, b.height - rectHeight);
-    var fillTint = b.map(i, 0, counter - 1, 100, 0);
+    var y = map(i, 0, counter - 1, 0, height - rectHeight);
+    var tint = map(i, 0, counter - 1, 100, 0);
 
-    b.fillTint(fillTint);
-    b.rect(0, y, b.width, rectHeight);
+    fillTint(tint);
+    rect(0, y, width, rectHeight);
   }
 }
-
-b.go();
