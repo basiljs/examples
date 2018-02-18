@@ -1,21 +1,26 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
-  b.units(b.PT); // default
-  b.text("points", 10, 20, 300, 300);
 
-  b.units(b.PX);
-  b.text("pixels", 10, 20, 300, 300);
+  // initially the script works with the units that are already set in the document
+  text("document units: " + units(), 0, 0, 50, 50);
 
-  b.units(b.MM);
-  b.text("millimenters", 10, 20, 300, 300);
+  // the units() function can be used to set the units to PT, PX, MM, CM or IN
+  units(PT);
+  text("points", 10, 20, 50, 50);
 
-  b.units(b.CM);
-  b.text("centimenters", 10, 20, 300, 300);
+  units(PX);
+  text("pixels", 10, 20, 50, 50);
 
-  b.units(b.IN);
-  b.text("inches", 1, 2, 300, 300);
+  units(MM);
+  text("millimenters", 10, 20, 50, 50);
+
+  units(CM);
+  text("centimenters", 10, 20, 50, 50);
+
+  units(IN);
+  text("inches", 1, 2, 50, 50);
+
+  // in the end of each script, units are automatically reset to the original document units
 }
-
-b.go();

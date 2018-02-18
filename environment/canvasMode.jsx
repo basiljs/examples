@@ -1,42 +1,41 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
 
-  b.doc(app.documents.add()); // use a fresh document
-  b.doc().documentPreferences.facingPages = true;
+  doc(app.documents.add()); // use a fresh document
+  doc().documentPreferences.facingPages = true;
+  units(PT);
 
-  b.noFill();
-  b.stroke(0, 255, 0);
-  b.strokeWeight(4);
-  b.margins(20);
-  b.bleeds(20);
+  noFill();
+  stroke(0, 255, 0);
+  strokeWeight(4);
+  margins(20);
+  bleeds(20);
 
-  b.page(1);
+  page(1);
 
-  b.canvasMode(b.MARGIN);
-  b.rect(0, 0, b.width, b.height);
+  canvasMode(MARGIN);
+  rect(0, 0, width, height);
 
-  b.canvasMode(b.PAGE);
-  b.rect(0, 0, b.width, b.height);
+  canvasMode(PAGE);
+  rect(0, 0, width, height);
 
-  b.canvasMode(b.BLEED);
-  b.rect(0, 0, b.width, b.height);
+  canvasMode(BLEED);
+  rect(0, 0, width, height);
 
-  b.addPage();
-  b.addPage();
+  addPage();
+  addPage();
 
-  b.page(2);
+  page(2);
 
-  b.canvasMode(b.FACING_MARGINS);
-  b.rect(0, 0, b.width, b.height);
+  canvasMode(FACING_MARGINS);
+  rect(0, 0, width, height);
 
-  b.canvasMode(b.FACING_PAGES);
-  b.rect(0, 0, b.width, b.height);
+  canvasMode(FACING_PAGES);
+  rect(0, 0, width, height);
 
-  b.canvasMode(b.FACING_BLEEDS);
-  b.rect(0, 0, b.width, b.height);
-
+  canvasMode(FACING_BLEEDS);
+  rect(0, 0, width, height);
 
 }
-b.go();

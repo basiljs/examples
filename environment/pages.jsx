@@ -1,51 +1,51 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
 
-  // run this on an empty document with only one page
-  b.doc().documentPreferences.facingPages = false; // force non-facing pages, sorry guys!
-  b.page();
+  // empty document and set page count to 1
+  clear(doc());
+  pageCount(1);
+  doc().documentPreferences.facingPages = false; // force non-facing pages, sorry guys!
 
   // add one page at the end of the document
-  b.addPage();
-  b.text("Example 1", b.width / 2, b.height / 2, 100, 100);
+  addPage();
+  text("Example A", width / 2, height / 2, 100, 100);
   // removes current page
-  b.removePage();
+  removePage();
 
   // fill up again...
-  b.addPage();
+  addPage();
   // removes page 1
-  b.removePage(1);
+  removePage(1);
 
   // fill up again and save reference in myPage
-  var myPage = b.addPage();
+  var myPage = addPage();
   // removes myPage right away... you won't see it ever
-  b.removePage(myPage);
+  removePage(myPage);
 
   // add pages until 20
-  for(var i = b.pageCount(); i < 20; i++) {
-    b.addPage();
-    b.text("Example 2-" + i, b.width / 2, b.height / 2, 100, 100);
+  for(var i = pageCount(); i < 20; i++) {
+    addPage();
+    text("Example B-" + (i + 1), width / 2, height / 2, 100, 100);
   }
 
   // set location of insertion
-  b.addPage(b.AT_END); // default
-  b.text("Example AT_END", b.width / 2, b.height / 2, 100, 100);
-  b.addPage(b.AT_BEGINNING);
-  b.text("Example AT_BEGINNING", b.width / 2, b.height / 2, 100, 100);
+  addPage(AT_END); // default
+  text("Example AT_END", width / 2, height / 2, 100, 100);
+  addPage(AT_BEGINNING);
+  text("Example AT_BEGINNING", width / 2, height / 2, 100, 100);
 
-  // adds a page before page 15
-  b.page(10); // set current page
-  b.addPage(b.BEFORE); // this refers to the current page
-  b.text("Example BEFORE 10 becomes the new 10", b.width / 2, b.height / 2, 100, 100);
+  // adds a page before page 10
+  page(10); // set current page
+  addPage(BEFORE); // this refers to the current page
+  text("Example BEFORE 10 becomes the new 10", width / 2, height / 2, 100, 100);
 
   // guess what!
-  b.page(15);
-  b.addPage(b.AFTER);
-  b.text("Example AFTER 15 becomes 16", b.width / 2, b.height / 2, 100, 100);
+  page(15);
+  addPage(AFTER);
+  text("Example AFTER 15 becomes 16", width / 2, height / 2, 100, 100);
 
-  b.println(b.pageCount());
+  println(pageCount());
 
 }
-b.go();

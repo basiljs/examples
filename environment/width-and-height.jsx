@@ -1,9 +1,9 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
-  b.println("page size: " + b.width + " x " + b.height);
-  b.rect(0, 0, b.width, b.height);
-}
 
-b.go();
+  var myUnits = units();
+  println("page size: " + width + myUnits + " x " + height + myUnits);
+  rect(0, 0, width, height);
+}
