@@ -1,46 +1,42 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
 
-  b.doc();
-  b.clear(b.doc());
+  clear(doc());
 
-  b.units(b.MM); // use millimeter
-  b.noStroke();
-  b.fill(100); // black
+  units(MM); // use millimeter
+  noStroke();
+  fill(255, 0, 0);
 
-  b.rectMode(b.CORNER); // Please note that only b.CORNER positioning is fully supported for moving around items
-  var ell = b.rect(b.width / 2, b.height / 2, 30, 30);
+  rectMode(CORNER); // Please note that only CORNER positioning is fully supported for moving around items
+  var ell = rect(width / 2, height / 2, 30, 30);
 
-  b.delay(1000);
+  delay(1000);
 
-  b.itemX(ell, 30);
-  b.delay(1000);
+  itemX(ell, 30);
+  delay(1000);
 
-  b.itemY(ell, 30);
-  b.delay(1000);
+  itemY(ell, 30);
+  delay(1000);
 
-  b.itemPosition(ell, b.width / 2, b.height / 2);
-  b.delay(1000);
+  itemPosition(ell, width / 2, height / 2);
+  delay(1000);
 
-  b.itemWidth(ell, 50);
-  b.delay(1000);
+  itemWidth(ell, 50);
+  delay(1000);
 
-  b.itemHeight(ell, 50);
-  b.delay(1000);
+  itemHeight(ell, 50);
+  delay(1000);
 
-  b.itemSize(ell, 30, 30);
-  b.delay(1000);
+  itemSize(ell, 30, 30);
+  delay(1000);
 
   for(var i = 0; i < 50; i++) {
-
-    b.itemX(ell, b.itemX(ell) + 2);
-    b.delay(30);
+    itemX(ell, itemX(ell) + 2);
+    delay(30);
   }
 
   ell.remove();
 
 }
-
-b.go();

@@ -1,53 +1,51 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
   var tileCount = 10;
   var rectWidth = 80;
-  var randomX = b.random(0, b.width);
-  var randomY = b.random(0, b.height);
+  var randomX = random(0, width);
+  var randomY = random(0, height);
 
-  b.noStroke();
-  b.rectMode(b.CENTER);
+  noStroke();
+  rectMode(CENTER);
 
-  var black = b.color("Black");
-  var red = b.color(255, 0, 0);
-  var green = b.color(0, 255, 0);
-  var white = b.color(0); // cmyk white
+  var black = color("Black");
+  var red = color(255, 0, 0);
+  var green = color(0, 255, 0);
+  var white = color(0); // cmyk white
 
-  b.textSize(9);
+  textSize(9);
 
   for (var gridY = 0; gridY < tileCount; gridY++) {
     for (var gridX = 0; gridX < tileCount; gridX++) {
-      var posX = b.width / tileCount * gridX;
-      var posY = b.height / tileCount * gridY;
-      var angle = b.atan2(randomY - posY, randomX - posX);
+      var posX = width / tileCount * gridX;
+      var posY = height / tileCount * gridY;
+      var angle = atan2(randomY - posY, randomX - posX);
 
-      b.pushMatrix();
-      b.translate(posX, posY);
-      b.rotate(angle);
+      pushMatrix();
+      translate(posX, posY);
+      rotate(angle);
 
-      b.fill(black);
-      b.rect(0, 0, rectWidth, 10);
+      fill(black);
+      rect(0, 0, rectWidth, 10);
 
-      b.fill(white);
-      b.ellipse(0, 0, 5, 5);
+      fill(white);
+      ellipse(0, 0, 5, 5);
 
-      b.pushMatrix();
-      b.translate(rectWidth / 2, 0);
-      b.fill(red);
-      b.ellipse(0, 0, 12, 12);
-      b.popMatrix();
+      pushMatrix();
+      translate(rectWidth / 2, 0);
+      fill(red);
+      ellipse(0, 0, 12, 12);
+      popMatrix();
 
-      b.rotate(b.HALF_PI);
-      b.fill(black);
-      b.text(b.nfc(posX, 1) + "/" + b.nfc(posY, 1), 0, 0, rectWidth * 0.5, 15);
-      b.popMatrix();
+      rotate(HALF_PI);
+      fill(black);
+      text(nfc(posX, 1) + "/" + nfc(posY, 1), 0, 0, rectWidth * 0.5, 15);
+      popMatrix();
     }
   }
 
-  b.fill(green);
-  b.ellipse(randomX, randomY, 30, 30);
+  fill(green);
+  ellipse(randomX, randomY, 30, 30);
 }
-
-b.go();
