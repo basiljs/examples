@@ -1,9 +1,8 @@
-﻿// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+﻿// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
 
 
-}
 
-b.go();
+}
