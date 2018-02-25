@@ -1,13 +1,13 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
-function setup() {
-  b.println(b.hour() + ":" + b.minute() + ":" + b.second());
+function draw() {
+  // printing current time
+  // the function nf(number, 2) is used to add a leading zero to single digits (9 -> 09)
+  println(nf(hour(), 2) + ":" + nf(minute(), 2) + ":" + nf(second(), 2));
 
   // wait 3 sec
-  b.delay(3000);
+  delay(3000);
 
-  b.println(b.hour() + ":" + b.minute() + ":" + b.second());
+  println(nf(hour(), 2) + ":" + nf(minute(), 2) + ":" + nf(second(), 2));
 }
-
-b.go();

@@ -1,32 +1,33 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function setup() {
+  clear(doc());
+  units(PT);
+
   var contents = "This is the first paragraph of the text frame.\rThis is the second one.";
-  b.text(contents, 0, 0, 400, 200);
-  b.text(contents, 0, 400, 400, 200);
+  text(contents, 0, 0, 150, 100);
+  text(contents, 0, 200, 150, 100);
 
-  var doc = b.doc();
+  var myDoc = doc();
 
-  b.stories(doc, function(story, si) {
-    b.println("Story " + si);
+  stories(myDoc, function(story, si) {
+    println("Story " + si);
   });
 
-  b.paragraphs(doc, function(para, pi) {
-    b.println("Paragraph " + pi);
+  paragraphs(myDoc, function(para, pi) {
+    println("Paragraph " + pi);
   });
 
-  b.lines(doc, function(line, li) {
-    b.println("Line " + li);
+  lines(myDoc, function(line, li) {
+    println("Line " + li);
   });
 
-  b.words(doc, function(word, wi) {
-    b.println("Word " + wi);
+  words(myDoc, function(word, wi) {
+    println("Word " + wi);
   });
 
-  b.characters(doc, function(ch, ci) {
-    b.println("Character " + ci);
+  characters(myDoc, function(ch, ci) {
+    println("Character " + ci);
   });
 }
-
-b.go();
