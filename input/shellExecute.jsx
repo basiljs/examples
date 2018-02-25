@@ -1,19 +1,20 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
+
+// Example shows how to executes a shell command ...
+// CURRENTYL MAC ONLY!
+// BE CAREFUL!
 
 function draw() {
-  // Example shows how to executes a shell command ...
-  // CURRENTYL MAC ONLY!
-  // BE CAREFUL!
 
-  b.println("-- get the current time from the shell --");
-  b.println(b.shellExecute("date"));
+  println("-- get the current time from the shell --");
+  println(shellExecute("date"));
+  println("");
 
-  b.println("-- list all files on your desktop --");
-  b.println(b.shellExecute("ls ~/Desktop"));
+  println("-- list all files on your desktop --");
+  println(shellExecute("ls ~/Desktop"));
+  println("");
 
-  b.println("-- some around in the internetz? --");
-  b.println(b.shellExecute("ping -c 1 www.basiljs.ch"));
+  println("-- some around in the internetz? --");
+  println(shellExecute("ping -c 1 www.basiljs.ch"));
 }
-
-b.go();

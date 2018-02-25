@@ -1,33 +1,28 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
+
+// In order to run this example you have to save your InDesign document first and put
+// a text file 'some_test_file.txt' with some plain content in a folder 'data' next to
+// your saved InDesign document
 
 function draw() {
-  /*
-  Please note:
-  You have to put a text file 'some_test_file.txt'
-  with some plain content in a folder 'data' next to
-  your saved InDesign document.
-  */
-  b.println("put some text file in the data folder!");
 
-  // load lines of the file in array
-  var linesArray = b.loadStrings("some_test_file.txt");
-  addTextForEachLine(linesArray);
+  println("Put some text file in the data folder.");
+  units(PT);
+
+  // load lines of the file in array and create a text frame for each line
+  var linesArray = loadStrings("some_test_file.txt");
+  for (var i = 0; i < linesArray.length; i++) {
+    text(linesArray[i], 0, i * 100, width, 100);
+  }
 
   // load file content
-  var textString = b.loadString("some_test_file.txt");
+  var textString = loadString("some_test_file.txt");
+
   // if you prefer not to use the data folder mechanism
-  // then use this code snippet:
-  // var txtFile = new File("/Users/bene/Desktop/some_test_file.txt");
-  // var text = b.loadString(txtFile);
+  // you can use the file() function
+  // var textFile = file("~/Desktop/some_test_file.txt");
+  // var textString = loadString(textFile);
 
-  b.println(textString);
+  println(textString);
 }
-
-function addTextForEachLine(lines) {
-  forEach(lines, function(line, i) {
-    b.text(line, 0, i * 100, 300, 100);
-  });
-}
-
-b.go();

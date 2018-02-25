@@ -1,23 +1,21 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
-  b.println("-- load an URL into a string --");
+  println("-- load an URL into a string --");
   var url = "http://basiljs.ch";
-  b.println(b.isURL(url));
-  b.println(b.loadString(url));
+  println("URL is valid: " + isURL(url));
+  println(loadString(url));
 
-  b.println("-- load lines of an text file into an array --");
-  var loadedArray = b.loadStrings("https://raw.github.com/basiljs/basil.js/master/examples/demos/B08_bar_chart_from_csv_data/data/LA_Pools-Pools_per_Hood.csv");
-  b.println(loadedArray.length);
-  b.println(loadedArray[0]);
-  b.println(loadedArray[1]);
+  println("-- load lines of an text file into an array --");
+  var loadedArray = loadStrings("https://raw.githubusercontent.com/basiljs/basil.js/master/scripts/tutorials/advanced/08_bar_chart_from_csv_data/data/LA_Pools-Pools_per_Hood.csv");
+  println("Array length: " + loadedArray.length);
+  println(loadedArray[0]);
+  println(loadedArray[1]);
 
-  b.println("-- load JSON data --");
-  var urlWeatherBasel = "http://api.openweathermap.org/data/2.5/weather?q=Basel,CH&units=metric";
-  var weatherData = b.JSON.decode(b.loadString(urlWeatherBasel));
-  b.println("wind speed: " + weatherData.wind.speed);
-  b.inspect(weatherData);
+  println("-- load JSON data --");
+  var urlWeatherBasel = "http://api.openweathermap.org/data/2.5/weather?q=Basel,CH&units=metric&mode=json&APPID=61f2e9b2e7a07508bdfd51cf91e132d9";
+  var weatherData = JSON.decode(loadString(urlWeatherBasel));
+  println("Wind speed: " + weatherData.wind.speed);
+  inspect(weatherData, {maxLevel: 3});
 }
-
-b.go();
