@@ -1,31 +1,47 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
-  // show the count of all stories in the current document
-  b.println(b.storyCount()); // 0
 
-  // create two textframes
-  var txtFrameA = b.text("hi this is txtFrameA! ", 0, 0, 300, 100);
-  var txtFrameB = b.text("this is text from txtFrameB! ", 100, 150, 300, 100);
-  b.println(b.storyCount()); // 2, because we have two unlinked textframes, each has its own story
+  clear(doc());
 
-  // link both textframes into one story
-  b.linkTextFrames(txtFrameA, txtFrameB);
-  b.println(b.storyCount()); // 1, because txtFrameB is now part of txtFrameA's story
+  units(PT);
+  noStroke();
 
-  // add something to the story of txtFrameA
+  // create some shapes
+  fill(255, 0, 0);
+  var myRect = rect(-100, 0, 50, 50);
+  fill(0, 255, 0);
+  var myCircle = ellipse(-100, 0, 50, 50);
+  stroke(0, 0, 255);
+  strokeWeight(15);
+  var myLine = line(-100, 0, -50, 0);
+
+  noStroke();
+  fill(0);
+
+  // collect shapes in an array
+  var myRandomObjects = [myRect, myCircle, myLine];
+
+
+  // create two text frames
+  var txtFrameA = text("hi this is txtFrameA! ", 0, 0, 400, 120);
+  var txtFrameB = text("this is text from txtFrameB! ", 100, 150, 400, 120);
+
+  // link both text frames into one story
+  linkTextFrames(txtFrameA, txtFrameB);
+
+  // add random shapes to the story of the linked text frames
   for (var i = 0; i < 20; i++) {
-    var tmpRect = b.rect(0, 0, 30, 30); // position of rect is ignored
-    b.addToStory(txtFrameA.parentStory, tmpRect);
-    b.addToStory(txtFrameA.parentStory, " | ");
+    var randomShape = myRandomObjects[floor(random(3))];
+    addToStory(txtFrameA.parentStory, randomShape);
+    addToStory(txtFrameA.parentStory, " | ");
   }
 
-  b.addToStory(txtFrameA.parentStory, " - and some text at the end --> ");
+  // add some text to the end
+  addToStory(txtFrameA.parentStory, " - and some text at the end --> ");
 
   // You can control the position of the insert via the last parameter.
-  // It accepts either an InsertionPoint or one the following constants: b.AT_BEGINNING and b.AT_END.
-  b.addToStory(txtFrameA.parentStory, "<-- some text at the front - ", b.AT_BEGINNING);
+  // It accepts either an insertion point or one the following constants: AT_BEGINNING and AT_END.
+  addToStory(txtFrameA.parentStory, "<-- some text at the front - ", AT_BEGINNING);
 }
-
-b.go();
