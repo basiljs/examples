@@ -1,35 +1,33 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
-  b.noFill();
+  units(PT);
+  noFill();
 
-  b.rectMode(b.CENTER); // show bounding boxes
-  b.stroke(128);
-  b.rect(35, 35, 50, 50);
-  b.rect(105, 35, 50, 50);
-  b.rect(175, 35, 50, 50);
-  b.rect(105, 105, 100, 50);
+  rectMode(CENTER); // show bounding boxes
+  stroke(128);
+  rect(35, 35, 50, 50);
+  rect(105, 35, 50, 50);
+  rect(175, 35, 50, 50);
+  rect(105, 105, 100, 50);
 
-  b.stroke(0);
-  b.arc(35, 35, 50, 50, 0, b.HALF_PI); // lower quarter circle
-  b.arc(105, 35, 50, 50, -b.PI, 0);  // upper half of circle
-  b.arc(175, 35, 50, 50, -b.PI / 6, b.PI / 6); // 60 degrees
-  b.arc(105, 105, 100, 50, b.HALF_PI, 3 * b.HALF_PI); // 180 degrees
+  stroke(0);
+  arc(35, 35, 50, 50, 0, HALF_PI); // lower quarter circle
+  arc(105, 35, 50, 50, -PI, 0);  // upper half of circle
+  arc(175, 35, 50, 50, -PI / 6, PI / 6); // 60 degrees
+  arc(105, 105, 100, 50, HALF_PI, 3 * HALF_PI); // 180 degrees
 
 
-  b.arc(35, 175, 50, 50, 0, b.HALF_PI);
-  b.arc(35, 175, 60, 60, b.HALF_PI, b.PI);
-  b.arc(35, 175, 70, 70, b.PI, b.PI + b.QUARTER_PI);
-  b.arc(35, 175, 80, 80, b.PI + b.QUARTER_PI, b.TWO_PI);
+  arc(35, 175, 50, 50, 0, HALF_PI);
+  arc(35, 175, 60, 60, HALF_PI, PI);
+  arc(35, 175, 70, 70, PI, PI + QUARTER_PI);
+  arc(35, 175, 80, 80, PI + QUARTER_PI, TWO_PI);
 
-  b.arc(175, 175, 80, 80, 0, b.PI + b.QUARTER_PI, b.OPEN);
+  arc(175, 175, 80, 80, 0, PI + QUARTER_PI, OPEN);
 
-  b.arc(315, 175, 80, 80, 0, b.PI + b.QUARTER_PI, b.CHORD);
+  arc(315, 175, 80, 80, 0, PI + QUARTER_PI, CHORD);
 
-  b.arc(455, 175, 80, 80, 0, b.PI + b.QUARTER_PI, b.PIE);
+  arc(455, 175, 80, 80, 0, PI + QUARTER_PI, PIE);
 
 }
-
-
-b.go();

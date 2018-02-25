@@ -1,15 +1,18 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
-  b.rectMode(b.CORNER); // default
-  b.rect(0, 0, 100, 100);
+  units(PT);
 
-  b.rectMode(b.CENTER);
-  b.rect(0, 0, 100, 100);
+  rectMode(CORNER); // default
+  rect(0, 0, 100, 100);
 
-  b.rectMode(b.CORNERS);
-  b.rect(200, 250, 300, 300);
+  rectMode(CENTER);
+  rect(0, 0, 100, 100);
+
+  rectMode(CORNERS);
+  rect(200, 250, 300, 300);
+
+  rectMode(RADIUS);
+  rect(0, 400, 100, 100);
 }
-
-b.go();

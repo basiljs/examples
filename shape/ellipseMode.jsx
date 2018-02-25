@@ -1,18 +1,18 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
-  b.ellipseMode(b.CENTER); // default
-  b.ellipse(0, 0, 100, 100);
+  units(PT);
 
-  b.ellipseMode(b.RADIUS);
-  b.ellipse(200, 200, 100, 100);
+  ellipseMode(CENTER); // default
+  ellipse(0, 0, 100, 100);
 
-  b.ellipseMode(b.CORNER);
-  b.ellipse(0, 0, 100, 100);
+  ellipseMode(RADIUS);
+  ellipse(200, 200, 100, 100);
 
-  b.ellipseMode(b.CORNERS);
-  b.ellipse(0, 300, 400, 350);
+  ellipseMode(CORNER);
+  ellipse(0, 0, 100, 100);
+
+  ellipseMode(CORNERS);
+  ellipse(0, 300, 400, 350);
 }
-
-b.go();

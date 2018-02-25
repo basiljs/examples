@@ -1,5 +1,5 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
   var counter = 50;
@@ -7,12 +7,10 @@ function draw() {
   var weightEnd = 12;
 
   for (var i = 0; i < counter; i++) {
-    var y = b.map(i, 0, counter - 1, 0, b.height);
-    var weight = b.map(i, 0, counter - 1, weightStart, weightEnd);
+    var y = map(i, 0, counter - 1, 0, height);
+    var weight = map(i, 0, counter - 1, weightStart, weightEnd);
 
-    b.strokeWeight(weight);
-    b.line(0, y, b.width, b.height / 2);
+    strokeWeight(weight);
+    line(0, y, width, height / 2);
   }
 }
-
-b.go();

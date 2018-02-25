@@ -1,8 +1,5 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
-
-function setup() {
-}
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 // --------------------------
 // Global variables:
@@ -17,99 +14,65 @@ var cy = 0;
 
 // --------------------------
 function draw() {
+  units(PT);
 
-  var pt = calculateEllipticalArc(radius * 2, radius * 0.5, b.radians(0), b.radians(90));
+  var pt = calculateEllipticalArc(radius * 2, radius * 0.5, radians(0), radians(90));
 
-  // Draw the Bezier control points.
-  b.stroke(0, 0, 0, 64);
-  b.fill(0, 0, 0, 64);
+  // draw handles
+  stroke(255, 0, 0);
+  fill(255, 0, 0);
 
-  b.ellipse(
-    cx + pt.startx,
-    cy + pt.starty,
-    8, 8);
-  b.ellipse(
-    cx + pt.handle1x,
-    cy + pt.handle1y,
-    8, 8);
-  b.ellipse(
-    cx + pt.handle2x,
-    cy + pt.handle2y,
-    8, 8);
-  b.ellipse(
-    cx + pt.endx,
-    cy + pt.endy,
-    8, 8);
+  ellipse(cx + pt.startx, cy + pt.starty, 5, 5);
+  ellipse(cx + pt.handle1x, cy + pt.handle1y, 5, 5);
+  ellipse(cx + pt.handle2x, cy + pt.handle2y, 5, 5);
+  ellipse(cx + pt.endx, cy + pt.endy, 5, 5);
 
-  b.line(
-    0,
-    0,
-    cx + pt.startx,
-    cy + pt.starty
-  );
-  b.line(
-    cx + pt.startx,
-    cy + pt.starty,
-    cx + pt.handle1x,
-    cy + pt.handle1y
-  );
-  b.line(
-    cx + pt.handle1x,
-    cy + pt.handle1y,
-    cx + pt.handle2x,
-    cy + pt.handle2y
-  );
-  b.line(
-    cx + pt.handle2x,
-    cy + pt.handle2y,
-    cx + pt.endx,
-    cy + pt.endy
-  );
-  b.line(
-    cx + pt.endx,
-    cy + pt.endy,
-    0,
-    0
-  );
+  line(0, 0, cx + pt.startx, cy + pt.starty);
+  line(cx + pt.startx, cy + pt.starty, cx + pt.handle1x, cy + pt.handle1y);
+  line(cx + pt.handle1x, cy + pt.handle1y, cx + pt.handle2x, cy + pt.handle2y);
+  line(cx + pt.handle2x, cy + pt.handle2y, cx + pt.endx, cy + pt.endy);
+  line(cx + pt.endx, cy + pt.endy, 0, 0);
 
 
-  b.beginShape(b.CLOSE);
-  b.vertex(
-    cx,
-    cy
-  );
-  b.vertex(
-    cx + pt.startx,
-    cy + pt.starty,
-    cx + pt.startx,
-    cy + pt.starty,
-    cx + pt.handle1x,
-    cy + pt.handle1y
-  );
-  b.vertex(
-    cx + pt.endx,
-    cy + pt.endy,
-    cx + pt.handle2x,
-    cy + pt.handle2y,
-    cx + pt.endx,
-    cy + pt.endy
-  );
-  b.endShape();
+  // draw actual shape
+  stroke(0);
+  fill(125);
+
+  beginShape(CLOSE);
+    vertex(cx, cy);
+    vertex(
+      cx + pt.startx,
+      cy + pt.starty,
+      cx + pt.startx,
+      cy + pt.starty,
+      cx + pt.handle1x,
+      cy + pt.handle1y
+    );
+    vertex(
+      cx + pt.endx,
+      cy + pt.endy,
+      cx + pt.handle2x,
+      cy + pt.handle2y,
+      cx + pt.endx,
+      cy + pt.endy
+    );
+  var myShape = endShape();
+
+  arrange(myShape, BACK);
 
 }
 
 function calculateEllipticalArc(w, h, startAngle, endAngle) {
   // Establish arc parameters.
   // (Note: assert theta != TWO_PI)
-  // var theta = b.radians(100/3.0); // spread of the arc.
-  // startAngle = b.radians(200/8.0); // as in arc()
+  // var theta = radians(100/3.0); // spread of the arc.
+  // startAngle = radians(200/8.0); // as in arc()
   // endAngle = startAngle + theta;    // as in arc()
   var theta = (endAngle - startAngle); // spread of the arc.
 
-
   // Compute raw Bezier coordinates.
-  var x0 = b.cos(theta / 2.0);
-  var y0 = b.sin(theta / 2.0);
+  var x0 = cos(theta / 2.0);
+  var y0 = sin(theta / 2.0);
   var x3 = x0;
   var y3 = 0 - y0;
   var x1 = (4.0 - x0) / 3.0;
@@ -121,8 +84,8 @@ function calculateEllipticalArc(w, h, startAngle, endAngle) {
   // x' = cos(angle) * x - sin(angle) * y;
   // y' = sin(angle) * x + cos(angle) * y;
   var bezAng = startAngle + theta / 2.0;
-  var cBezAng = b.cos(bezAng);
-  var sBezAng = b.sin(bezAng);
+  var cBezAng = cos(bezAng);
+  var sBezAng = sin(bezAng);
   var rx0 = cBezAng * x0 - sBezAng * y0;
   var ry0 = sBezAng * x0 + cBezAng * y0;
   var rx1 = cBezAng * x1 - sBezAng * y1;
@@ -147,6 +110,3 @@ function calculateEllipticalArc(w, h, startAngle, endAngle) {
     endy: rh * ry3
   };
 }
-
-
-b.go();
