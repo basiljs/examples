@@ -1,5 +1,5 @@
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 function draw() {
 
@@ -20,47 +20,45 @@ function draw() {
    */
 
   var sayThis = "basil.js";
-  var changeCol = 100;
-  var changeVal = 10;
+  var changeCol = 180;
+  var changeVal = 20;
   var box;
-  var strokeW = 0.25;
+  var strokeW = (0.25);
 
-  b.fill(changeCol);
-  b.textFont("Helvetica", "Bold");
-  b.textSize(48);
+  fill(changeCol);
+  textFont("Helvetica", "Bold");
+  textSize(48);
 
-  box = b.text(sayThis, 0, 0, b.width, 80);
+  box = text(sayThis, 0, 0, width, 80);
   changeCol -= changeVal;
   box.strokeWeight = strokeW;
 
-  b.fill(changeCol);
-  b.textAlign(Justification.CENTER_ALIGN);
-  box = b.text(sayThis, 0, 100, b.width, 80);
+  fill(changeCol);
+  textAlign(Justification.CENTER_ALIGN);
+  box = text(sayThis, 0, 100, width, 80);
   changeCol -= changeVal;
   box.strokeWeight = strokeW;
 
-  b.fill(changeCol);
-  b.textAlign(Justification.RIGHT_ALIGN);
-  box = b.text(sayThis, 0, 200, b.width, 80);
+  fill(changeCol);
+  textAlign(Justification.RIGHT_ALIGN);
+  box = text(sayThis, 0, 200, width, 80);
   changeCol -= changeVal;
   box.strokeWeight = strokeW;
 
-  b.fill(changeCol);
-  b.textAlign(Justification.FULLY_JUSTIFIED);
-  box = b.text(sayThis, 0, 300, b.width, 80);
+  fill(changeCol);
+  textAlign(Justification.FULLY_JUSTIFIED);
+  box = text(sayThis, 0, 300, width, 80);
   changeCol -= changeVal;
   box.strokeWeight = strokeW;
 
-  b.fill(changeCol);
-  b.textAlign(Justification.FULLY_JUSTIFIED, VerticalJustification.CENTER_ALIGN);
-  box = b.text(sayThis, 0, 400, b.width, 80);
+  fill(changeCol);
+  textAlign(Justification.FULLY_JUSTIFIED, VerticalJustification.CENTER_ALIGN);
+  box = text(sayThis, 0, 400, width, 80);
   changeCol -= changeVal;
   box.strokeWeight = strokeW;
 
-  b.fill(changeCol);
-  b.textAlign(Justification.FULLY_JUSTIFIED, VerticalJustification.BOTTOM_ALIGN);
-  box = b.text(sayThis, 0, 500, b.width, 80);
+  fill(changeCol);
+  textAlign(Justification.FULLY_JUSTIFIED, VerticalJustification.BOTTOM_ALIGN);
+  box = text(sayThis, 0, 500, width, 80);
   box.strokeWeight = strokeW;
 }
-
-b.go();
