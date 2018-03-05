@@ -1,31 +1,35 @@
-// targetengine "loop";
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+#targetengine "loop";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 // note: use telnet on terminal to send strings after the server was started
 // telnet localhost 1024
 // then type and press return
 
-var server = null;
-var conn = null;
+var server;
+var conn;
 
 var tWidth;
 var tHeight;
 
 function setup() {
-  b.doc();
+  units(PT);
   server = new Socket();
   server.listen(1024);
   server.timeout = 999999;
-  b.println("server started at localhost 1024");
+  println("server started at localhost 1024");
 
-  tWidth = b.width - 150;
+  tWidth = width - 150;
   tHeight = 400;
+
+  textFont("Helvetica", "Bold");
+  textSize(72);
+  textAlign(Justification.CENTER_ALIGN);
 }
 
-function draw() {
+function loop() {
 
-  b.println("poll loop");
+  println("poll loop");
 
   if(conn === null) {
     conn = server.poll();
@@ -34,13 +38,10 @@ function draw() {
     conn.timeout = 0.05; // time for connected client to wait for linefeed, otherwise blocks InDesign for 10 seconds
     var s = conn.readln();
     if (s !== null && s !== "") {
-      b.println(s);
+      println(s);
 
-      b.addPage();
-      var tf = b.text(s, b.width / 2 - tWidth / 2, b.height / 2 - tHeight / 2, tWidth, tHeight);
-      b.typo(tf, "appliedFont", "Helvetica\tBold");
-      b.typo(tf, "pointSize", "72");
-      b.typo(tf, "justification", Justification.CENTER_ALIGN);
+      addPage();
+      var tf = text(s, width / 2 - tWidth / 2, height / 2 - tHeight / 2, tWidth, tHeight);
     }
   }
 
@@ -55,7 +56,5 @@ function cleanUp() {
   }
   server = null;
   conn = null;
-  b.println("stopped server");
+  println("stopped server");
 }
-
-b.loop(15);

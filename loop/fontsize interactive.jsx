@@ -1,21 +1,21 @@
-// @targetengine "loop";
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+#targetengine "loop";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 var ctrl, textFramePage;
 
 function setup() {
-  b.textSize(20);
-  ctrl = b.text("move me!", -250, 100, 100, 50);
-  textFramePage = b.text("basel", 0, 0, b.width, b.height);
+  units(PT);
+  doc();
+  textSize(20);
+  ctrl = text("move me!", -120, 100, 100, 50);
+  textFramePage = text("basil", 0, 0, width, height);
 }
 
-function draw() {
+function loop() {
   var y = ctrl.geometricBounds[0];
-  y = b.round(y);
-  textFramePage.contents = "basel " + y;
+  y = round(y);
+  textFramePage.contents = "basil " + y;
   textFramePage.paragraphs[0].pointSize = y;
   ctrl.contents = "move me!\n" + y;
 }
-
-b.loop();

@@ -1,27 +1,28 @@
-// @targetengine "loop";
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+#targetengine "loop";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 
 var pos, vel;
-var ellipse;
+var myEllipse;
 var ellipseRadius = 20;
 
 function setup() {
-  pos = new b.Vector(b.random(b.width), b.random(b.height));
-  vel = new b.Vector(b.random(3, 10), b.random(3, 10));
-  ellipse = b.ellipse(pos.x, pos.y, ellipseRadius * 2, ellipseRadius * 2);
-  b.fillTint(50);
-  b.rectMode(b.CENTER);
+  units(PT);
+  pos = new Vector(random(width), random(height));
+  vel = new Vector(random(3, 10), random(3, 10));
+  myEllipse = ellipse(pos.x, pos.y, ellipseRadius * 2, ellipseRadius * 2);
+  fillTint(50);
+  rectMode(CENTER);
 }
 
-function draw() {
+function loop() {
   pos.add(vel);
 
   // detect boundary collision
   // right
-  if (pos.x > b.width - ellipseRadius) {
-    pos.x = b.width - ellipseRadius;
+  if (pos.x > width - ellipseRadius) {
+    pos.x = width - ellipseRadius;
     vel.x *= -1;
   }
   // left
@@ -35,14 +36,12 @@ function draw() {
     vel.y *= -1;
   }
   // bottom
-  if (pos.y > b.height - ellipseRadius) {
-    pos.y = b.height - ellipseRadius;
+  if (pos.y > height - ellipseRadius) {
+    pos.y = height - ellipseRadius;
     vel.y *= -1;
   }
 
-  b.rect(pos.x, pos.y, 10, 10);
+  rect(pos.x, pos.y, 10, 10);
   // [y1, x1, y2, x2]
-  ellipse.geometricBounds = [pos.y - ellipseRadius, pos.x - ellipseRadius, pos.y + ellipseRadius, pos.x + ellipseRadius];
+  myEllipse.geometricBounds = [pos.y - ellipseRadius, pos.x - ellipseRadius, pos.y + ellipseRadius, pos.x + ellipseRadius];
 }
-
-b.loop(60); // try to run in 60 FPS :)
