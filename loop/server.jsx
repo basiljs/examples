@@ -6,8 +6,8 @@
 // telnet localhost 1024
 // then type and press return
 
-var server;
-var conn;
+var server = null;
+var conn = null;
 
 var tWidth;
 var tHeight;
@@ -28,8 +28,6 @@ function setup() {
 }
 
 function loop() {
-
-  println("poll loop");
 
   if(conn === null) {
     conn = server.poll();
