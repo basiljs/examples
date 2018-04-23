@@ -7,6 +7,7 @@ function draw() {
   var randomX = random(0, width);
   var randomY = random(0, height);
 
+  units(PT);
   noStroke();
   rectMode(CENTER);
 

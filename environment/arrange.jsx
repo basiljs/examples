@@ -54,8 +54,8 @@ function createShapes (xOffset, startColor, endColor) {
   }
 
   // reposition and resize #3 slightly to be able to see arrangements better
-  itemY(shapes[3], 40);
-  itemHeight(shapes[3], 150);
+  transform(shapes[3], "y", 40);
+  transform(shapes[3], "height", 150);
 
   return shapes;
 }

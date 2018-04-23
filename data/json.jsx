@@ -3,11 +3,11 @@
  * no idea what JSON is? then have a read here: http://en.wikipedia.org/wiki/JSON
  */
 
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 // to load an external json file use
-// var jsonString = b.loadString("path/to/file.json")
+// var jsonString = loadString("path/to/file.json")
 
 var jsonString = "{\
                   \"firstName\": \"John\",\
@@ -34,16 +34,14 @@ var jsonString = "{\
 // you don't have normally a '\' at the end of a line ...
 // this is just the character to have a multiline-string
 
-function setup() {
+function draw() {
   // parse JSON
-  var jsonData = b.JSON.decode(jsonString);
+  var jsonData = JSON.decode(jsonString);
 
-  b.text(jsonData.firstName, 0, 0, b.width, 50);
-  b.text(jsonData.address.city, 0, 50, b.width, 50);
-  b.text(jsonData.phoneNumber[0].number, 0, 100, b.width, 50);
+  text(jsonData.firstName, 0, 0, width, 50);
+  text(jsonData.address.city, 0, 50, width, 50);
+  text(jsonData.phoneNumber[0].number, 0, 100, width, 50);
 
   // convert an object to a JSON-string
-  b.println(b.JSON.encode(jsonData));
+  println(JSON.encode(jsonData));
 }
-
-b.go();

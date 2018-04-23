@@ -3,11 +3,11 @@
  * no idea what CSV is? then have a read here: http://en.wikipedia.org/wiki/Comma-separated_values
  */
 
-// @includepath "~/Documents/;%USERPROFILE%Documents";
-// @include "basiljs/basil.js";
+// @includepath ~/Documents/;%USERPROFILE%Documents;
+// @include basiljs/basil.js;
 
 // to load an external csv file use
-// var jsonString = b.loadString("path/to/file.csv")
+// var jsonString = loadString("path/to/file.csv")
 
 var csvString = "";
 csvString += "firstName,lastName,middleInitial,firstNameFirst,lastNameFirst\n";
@@ -29,23 +29,21 @@ csvString += "Julia,Desai,E,Julia E. Desai,\"Desai, Julia E.\"\n";
 // ... an excerpt of randomNames.csv
 // from http://www.opensourcecf.com/1/2009/05/10000-Random-Names-Database.cfm
 
-function setup() {
-  b.clear(b.doc());
+function draw() {
+  clear(doc());
 
   // set the delimiter
   // very common for .csv files is ',' (=default) or ';' and for .tsv files '\t'
-  // b.CSV.delimiter(',')
+  // CSV.delimiter(',')
 
   // parse CSV
-  var csvData = b.CSV.decode(csvString);
+  var csvData = CSV.decode(csvString);
 
   // create textframes for "firstNameFirst" column
   for (var i = 0; i < csvData.length; i++) {
-    b.text(csvData[i].firstNameFirst, 0, i * 20, b.width, 19);
+    text(csvData[i].firstNameFirst, 0, i * 20, width, 19);
   }
 
   // convert an array of key value objects to a CSV-string
-  b.println(b.CSV.encode(csvData));
+  println(CSV.encode(csvData));
 }
-
-b.go();

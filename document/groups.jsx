@@ -15,7 +15,7 @@ function draw() {
 
   // group them and modify group
   var circles = group(arr, "rects");
-  itemPosition(circles, 0, 0);
+  transform(circles, "position", [0, 0]);
   circles.fillColor = color(0, 255, 178);
 
 	// print the width of our group

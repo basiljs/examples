@@ -58,18 +58,18 @@ function loop() {
 
   // check paddle
   if (paddle !== null
-        && pos.y > itemY(paddle) - ballRadius * 2
-        && pos.x > itemX(paddle) - ballRadius
-        && pos.x < itemX(paddle) + ballRadius + itemWidth(paddle)) {
+        && pos.y > transform(paddle, "y") - ballRadius * 2
+        && pos.x > transform(paddle, "x") - ballRadius
+        && pos.x < transform(paddle, "x") + ballRadius + transform(paddle, "width")) {
 
     vel.y *= -1;
     vel.mult(1.0); // getting harder...
     counter++;
-    pos.y = itemY(paddle) - ballRadius * 2;
+    pos.y = transform(paddle, "y") - ballRadius * 2;
 
   }
 
-  itemPosition(ball, pos.x, pos.y);
+  transform(ball, "position", [pos.x, pos.y]);
   countBox.contents = String(counter);
 
 }
@@ -78,7 +78,7 @@ function initBall() {
   pos = new Vector(width / 2, height / 2);
   vel = new Vector(random(-20, 20), -18);
   ball = ellipse(pos.x, pos.y, ballRadius * 2, ballRadius * 2);
-  itemPosition(ball, pos.x, pos.y);
+  transform(ball, "position", [pos.x, pos.y]);
 }
 
 // this is called when the stop.jsx script is invoked. use this to remove all the runtime items.

@@ -14,29 +14,29 @@ function draw() {
 
   delay(1000);
 
-  itemX(ell, 30);
+  transform(ell, "x", 30);
   delay(1000);
 
-  itemY(ell, 30);
+  transform(ell, "y", 30);
   delay(1000);
 
-  itemPosition(ell, width / 2, height / 2);
+  transform(ell, "position", [width / 2, height / 2]);
   delay(1000);
 
-  itemWidth(ell, 50);
+  transform(ell, "width", 50);
   delay(1000);
 
-  itemHeight(ell, 50);
+  transform(ell, "height", 50);
   delay(1000);
 
-  itemSize(ell, 30, 30);
+  transform(ell, "size", [30, 30]);
   delay(1000);
 
   for(var i = 0; i < 50; i++) {
-    itemX(ell, itemX(ell) + 2);
+    transform(ell, "x", transform(ell, "x") + 2);
     delay(30);
   }
 
-  ell.remove();
+  remove(ell);
 
 }

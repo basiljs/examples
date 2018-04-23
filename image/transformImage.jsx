@@ -10,6 +10,7 @@ function draw() {
   noStroke();
 
   var img = image("image-example.jpg", 100, 350);
-  transformImage(img, 0, 0, 500, 500);
+  transform(img, "position", [0, 0]);
+  transform(img, "size", [500, 500]);
 
 }
