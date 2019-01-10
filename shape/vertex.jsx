@@ -13,11 +13,11 @@ function draw() {
   endShape();
 
   // closed shape
-  beginShape(CLOSE);
+  beginShape();
   vertex(130, 20);
   vertex(185, 20);
   vertex(185, 75);
-  endShape();
+  endShape(CLOSE);
 
   // bezier shape
   // vertex(x, y, xAnchorLeft, yAnchorLeft, xAnchorRight, yAnchorRight)
