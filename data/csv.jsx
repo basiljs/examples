@@ -7,7 +7,7 @@
 // @include basiljs/basil.js;
 
 // to load an external csv file use
-// var jsonString = loadString("path/to/file.csv")
+// var csvString = loadString("path/to/file.csv")
 
 var csvString = "";
 csvString += "firstName,lastName,middleInitial,firstNameFirst,lastNameFirst\n";
