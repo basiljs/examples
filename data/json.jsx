@@ -36,12 +36,12 @@ var jsonString = "{\
 
 function draw() {
   // parse JSON
-  var jsonData = JSON.decode(jsonString);
+  var jsonData = JSON.parse(jsonString);
 
   text(jsonData.firstName, 0, 0, width, 50);
   text(jsonData.address.city, 0, 50, width, 50);
   text(jsonData.phoneNumber[0].number, 0, 100, width, 50);
 
   // convert an object to a JSON-string
-  println(JSON.encode(jsonData));
+  println(JSON.stringify(jsonData));
 }
