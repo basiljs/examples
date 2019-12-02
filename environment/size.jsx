@@ -1,5 +1,4 @@
-// @includepath ~/Documents/;%USERPROFILE%Documents;
-// @include basiljs/basil.js;
+// @include ~/Documents/basiljs/basil.js;
 
 // The size([width,[height]]) function allows to get/set the size of
 // the current document.

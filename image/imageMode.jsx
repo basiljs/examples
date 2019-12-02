@@ -1,5 +1,4 @@
-// @includepath ~/Documents/;%USERPROFILE%Documents;
-// @include basiljs/basil.js;
+// @include ~/Documents/basiljs/basil.js;
 
 // In order to run this example you have to save your InDesign document first and put
 // a picture file named 'image-example.jpg' next to it in a folder called 'data'.

@@ -3,8 +3,7 @@
  * no idea what JSON is? then have a read here: http://en.wikipedia.org/wiki/JSON
  */
 
-// @includepath ~/Documents/;%USERPROFILE%Documents;
-// @include basiljs/basil.js;
+// @include ~/Documents/basiljs/basil.js;
 
 // to load an external json file use
 // var jsonString = loadString("path/to/file.json")

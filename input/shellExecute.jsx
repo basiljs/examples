@@ -1,5 +1,4 @@
-// @includepath ~/Documents/;%USERPROFILE%Documents;
-// @include basiljs/basil.js;
+// @include ~/Documents/basiljs/basil.js;
 
 // Example shows how to executes a shell command ...
 // CURRENTYL MAC ONLY!

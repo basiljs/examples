@@ -1,5 +1,4 @@
-// @includepath ~/Documents/;%USERPROFILE%Documents;
-// @include basiljs/basil.js;
+// @include ~/Documents/basiljs/basil.js;
 
 function draw() {
   var myColor = color(10, 20, 30, "blackmagic");

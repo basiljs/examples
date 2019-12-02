@@ -1,5 +1,4 @@
-// @includepath ~/Documents/;%USERPROFILE%Documents;
-// @include basiljs/basil.js;
+// @include ~/Documents/basiljs/basil.js;
 
 // you can get all elements you have marked with a script label (Window -> Utilities -> Script Label)
 // there a two different ways to use the labels() function

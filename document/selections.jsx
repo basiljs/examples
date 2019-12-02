@@ -1,5 +1,4 @@
-// @includepath ~/Documents/;%USERPROFILE%Documents;
-// @include basiljs/basil.js;
+// @include ~/Documents/basiljs/basil.js;
 
 // you can get all the elements you have selected in InDesign via the selections() function
 // there a two different ways to use the selections() function

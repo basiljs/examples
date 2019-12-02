@@ -1,6 +1,5 @@
 #targetengine "loop";
-// @includepath ~/Documents/;%USERPROFILE%Documents;
-// @include basiljs/basil.js;
+// @include ~/Documents/basiljs/basil.js;
 
 
 var pos, vel;

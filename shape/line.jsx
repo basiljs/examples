@@ -1,5 +1,4 @@
-// @includepath ~/Documents/;%USERPROFILE%Documents;
-// @include basiljs/basil.js;
+// @include ~/Documents/basiljs/basil.js;
 
 function draw() {
   units(PT);
@@ -10,11 +9,11 @@ function draw() {
 
   strokeWeight(2);
 
-  for (var gridY = 0; gridY < tileCount; gridY++) {
-    for (var gridX = 0; gridX < tileCount; gridX++) {
+  for (var gridY = 0; gridY <= tileCount; gridY++) {
+    for (var gridX = 0; gridX <= tileCount; gridX++) {
       var posX = width / tileCount * gridX;
       var posY = height / tileCount * gridY;
-      line(posX, posY, randomX, randomY);
+      line(randomX, randomY, posX, posY);
     }
   }
 

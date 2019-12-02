@@ -1,5 +1,4 @@
-// @includepath ~/Documents/;%USERPROFILE%Documents;
-// @include basiljs/basil.js;
+// @include ~/Documents/basiljs/basil.js;
 
 // The example shows how to select a page item on a specific page by its name.
 // Hint: you can manually name a page item in the layers panel (Window -> Layer).
